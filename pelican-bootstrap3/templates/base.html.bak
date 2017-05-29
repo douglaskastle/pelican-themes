@@ -56,7 +56,6 @@
     <!-- Bootstrap -->
     {% if BOOTSTRAP_THEME %}
         <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/bootstrap.{{ BOOTSTRAP_THEME }}.min.css" type="text/css"/>
-        <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/bootstrap_fixes.{{ BOOTSTRAP_THEME }}.css" type="text/css"/>
     {% else %}
         <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/bootstrap.min.css" type="text/css"/>
     {% endif %}
@@ -170,7 +169,7 @@
 <div class="container{% if BOOTSTRAP_FLUID %}-fluid{% endif %}">
     <div class="row">
         {% if not HIDE_SIDEBAR or ABOUT_ME or AVATAR %}
-        <div class="col-sm-9">
+        <div class="col-sm-9{% if SIDEBAR_ON_LEFT %} col-sm-push-3{% endif %}">
         {% else %}
         <div class="col-lg-12">
         {% endif %}
@@ -180,7 +179,7 @@
         {% endblock %}
         </div>
         {% if not HIDE_SIDEBAR or ABOUT_ME or AVATAR %}
-        <div class="col-sm-3" id="sidebar">
+        <div class="col-sm-3{% if SIDEBAR_ON_LEFT %} col-sm-pull-9{% endif %}" id="sidebar">
             <aside>
             {% if ABOUT_ME or AVATAR %}
                 {% include 'includes/aboutme.html' %}

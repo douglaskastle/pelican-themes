@@ -10,6 +10,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    {% from "includes/gettext.html" import gettext %}
     {% if 'liquid_tags.notebook' in PLUGINS %}
         {% include 'includes/liquid_tags_nb_header.html' %}
     {% endif %}
@@ -206,10 +207,9 @@
 {% if BANNER %}
     <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/bodypadding.js"></script>
 {% endif %}
-{% include 'includes/sidebar/github-js.html' %}
+{% include 'includes/github-js.html' %}
 {% include 'includes/disqus_script.html' %}
-{% include 'includes/ga.html' %}
-{% include 'includes/piwik.html' %}
+{% include 'includes/analytics.html' %}
 
 {% if 'liquid_tags.notebook' in PLUGINS %}
     {% include 'includes/liquid_tags_nb_footer.html' %}
